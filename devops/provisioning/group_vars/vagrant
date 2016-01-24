@@ -1,0 +1,19 @@
+---
+
+dev_env: true
+# List of databases to be created
+postgresql_databases:
+  - name: "skillsapi"
+    hstore: yes         # flag to install the hstore extension on this database (yes/no)
+    uuid_ossp: yes
+
+# List of users to be created
+postgresql_users:
+  - name: "skillsapi"
+    pass: "skillsapi798"
+
+postgresql_user_privileges:
+  - name: "skillsapi"
+    db: "skillsapi"
+    priv: "ALL"
+    role_attr_flags: "SUPERUSER"

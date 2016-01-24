@@ -1,0 +1,36 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+services:
+
+    resource.skill:
+        parent:    "api.resource"
+        arguments: [ "AppBundle\\Entity\\Skill" ]
+        calls:
+            -      [ "initFilters", [ [ "@resource.skill.search_filter", "@resource.skill.order_filter" ] ] ]
+        tags:      [ { name: "api.resource" } ]
+
+    resource.skill.search_filter:
+        parent:    "api.doctrine.orm.search_filter"
+        arguments: [ { title: "partial" } ]
+
+    resource.skill.order_filter:
+        parent: "api.doctrine.orm.order_filter"
+        arguments: [ { "title": ~ } ]
+
+    resource.tag:
+        parent:    "api.resource"
+        arguments: [ "AppBundle\\Entity\\Tag" ]
+        calls:
+            -      [ "initFilters", [ [ "@resource.tag.search_filter" ] ] ]
+        tags:      [ { name: "api.resource" } ]
+
+    resource.tag.search_filter:
+        parent:    "api.doctrine.orm.search_filter"
+        arguments: [ { "title": "partial" } ]
+
+
+    admin.skill:
+            class: AppBundle\Admin\SkillAdmin
+            arguments: [~, AppBundle\Entity\Skill, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm, label: Skill }
