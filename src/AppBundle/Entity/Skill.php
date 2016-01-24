@@ -28,7 +28,7 @@ class Skill
     private $id;
 
     /**
-     * @var string
+     * @var string The name of the item.
      * @ORM\Column(type="string", unique=true)
      *
      * @Assert\Type(type="string")
