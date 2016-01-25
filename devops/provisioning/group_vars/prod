@@ -1,19 +1,19 @@
 ---
 
-dev_env: true
+dev_env: false
 # List of databases to be created
 postgresql_databases:
-  - name: CHANGE_IT_prod-staging_db_name
-    hstore: yes         # flag to install the hstore extension on this database (yes/no)
+  - name: skillsapi
+    hstore: yes
     uuid_ossp: yes
 
 # List of users to be created
 postgresql_users:
-  - name: CHANGE_IT_prod-staging_user_db
-    pass: CHANGE_IT_prod-staging_password_db
+  - name: "skillsapi"
+    pass: "skillsapi798"
 
 postgresql_user_privileges:
-  - name: CHANGE_IT_prod-staging_user_db
-    db: CHANGE_IT_prod-staging_db_name
+  - name: "skillsapi"
+    db: "skillsapi"
     priv: "ALL"
     role_attr_flags: "SUPERUSER"

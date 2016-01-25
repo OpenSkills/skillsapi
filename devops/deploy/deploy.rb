@@ -1,13 +1,11 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :deploy_to, "/var/www/skillsapi"
-#set :repo_url, 'git@github.com:fansible/tywin.git'
-set :repo_url, 'git@github.com:CHANGEME/CHANGEME.git'
-
 set :stages, %w(prod)
 
-#TODO: change to var/logs,var/cache,bin/console ... if it's a SF3 project
+set :deploy_to, "/var/www/skillsapi"
+set :repo_url, 'git@github.com:OpenSkills/skillsapi.git'
+
 set :log_path, "app/logs"
 set :cache_path, "app/cache"
 set :symfony_console_path, 'app/console'

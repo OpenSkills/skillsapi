@@ -14,10 +14,12 @@
     - composer
     - ubuntu-symfony-nginx
     - ubuntu-postgresql
+    - ssh-keys
 
-#- name: Vagrant provisioning
-#  hosts: vagrant
-#  sudo: yes
-#  gather_facts: true
-#  roles:
+- name: Vagrant provisioning
+  hosts: vagrant
+  become: yes
+  gather_facts: true
+  roles:
 #   - ubuntu-xdebug
+#   - ansible-role-ruby
